@@ -9,7 +9,7 @@ export const discoverMoviesApi = createApi({
   }),
   endpoints: (builder) => ({
     getSortedMovies: builder.query({
-      query: (sortType) =>
+      query: (sortType: string) =>
         `movie?api_key=${TMDB_API_KEY}&language=en-US&sort_by=${sortType}&release_date.lte=${getCurrentDateString()}&page=1`,
     }),
   }),

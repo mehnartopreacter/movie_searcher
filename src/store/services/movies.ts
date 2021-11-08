@@ -8,7 +8,8 @@ export const moviesInfoApi = createApi({
   }),
   endpoints: (builder) => ({
     getMovieInfo: builder.query({
-      query: (movieId) => `${movieId}?api_key=${TMDB_API_KEY}&language=en-US`,
+      query: (movieId: number) =>
+        `${movieId}?api_key=${TMDB_API_KEY}&language=en-US`,
     }),
   }),
 });

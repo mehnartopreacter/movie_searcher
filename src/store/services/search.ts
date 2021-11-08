@@ -8,7 +8,7 @@ export const searchMoviesApi = createApi({
   }),
   endpoints: (builder) => ({
     getFoundMovies: builder.query({
-      query: (searchInput) =>
+      query: (searchInput: string) =>
         `movie?api_key=${TMDB_API_KEY}&language=en-US&query=${searchInput}&page=1&include_adult=false`,
     }),
   }),
