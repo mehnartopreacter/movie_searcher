@@ -13,7 +13,7 @@ const routes = [
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Header />
       <Main>
         {routes.map(({ path, component }) => (
