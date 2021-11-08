@@ -7,38 +7,56 @@ import { useParams } from "react-router-dom";
 import { useGetMovieInfoQuery } from "../../store/services/movies";
 import { Flex, Grid, Heading, Text } from "@chakra-ui/react";
 import { concatImageUrl } from "../../utils/concatImageUrl";
-import { Section } from "../../styles/global";
 import { joinListOfNamedEntities } from "../../utils/joinListOfNamedEntities";
+import { ErrorWarning } from "../../components/ErrorWarning/ErrorWarning";
+import { Loader } from "../../components/Loader/Loader";
+import { getBudgetWithCommas } from "../../utils/getBudgetWithCommas";
 
 export const MoviePage = () => {
   const { id } = useParams();
   const { data, error, isLoading } = useGetMovieInfoQuery(id);
+
+  const postePath = data && data.poster_path;
+  const title = data && data.title;
+  const story = data && data.overview;
+  const budget = data && getBudgetWithCommas(data.budget);
+  const genres = data && joinListOfNamedEntities(data.genres);
+  const release = data && data.release_date;
+  const rating = data && data.vote_average;
+  const production = data && joinListOfNamedEntities(data.production_companies);
+
+  if (error) {
+    return <ErrorWarning />;
+  }
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
-    <Section>
-      <MoviePageWrapper>
-        <Flex>
-          <MoviePoster src={concatImageUrl(data?.poster_path)} />
-          <MovieDetailsWrapper>
-            <Heading as="h2">{data?.title}</Heading>
-            <Flex direction="column">
-              <Text fontSize="25px">Story</Text>
-              <Text>{data?.overview}</Text>
-            </Flex>
-            <Grid templateColumns="repeat(2, 1fr)">
-              <Text>Budget</Text>
-              <Text>{data?.budget}</Text>
-              <Text>Genres</Text>
-              <Text>{joinListOfNamedEntities(data?.genres)}</Text>
-              <Text>Release</Text>
-              <Text>{data?.release_date}</Text>
-              <Text>Rating</Text>
-              <Text>{data?.vote_average}</Text>
-              <Text>Production</Text>
-              <Text>{joinListOfNamedEntities(data?.production_companies)}</Text>
-            </Grid>
-          </MovieDetailsWrapper>
-        </Flex>
-      </MoviePageWrapper>
-    </Section>
+    <MoviePageWrapper>
+      <Flex>
+        <MoviePoster src={concatImageUrl(postePath)} />
+        <MovieDetailsWrapper>
+          <Heading as="h2">{title}</Heading>
+          <Flex margin="20px 0" direction="column">
+            <Text fontSize="25px">Story</Text>
+            <Text>{story}</Text>
+          </Flex>
+          <Grid maxWidth="400px" templateColumns="repeat(2, 1fr)">
+            <Text>Budget</Text>
+            <Text>{budget}</Text>
+            <Text>Genres</Text>
+            <Text>{genres}</Text>
+            <Text>Release</Text>
+            <Text>{release}</Text>
+            <Text>Rating</Text>
+            <Text>{rating}</Text>
+            <Text>Production</Text>
+            <Text>{production}</Text>
+          </Grid>
+        </MovieDetailsWrapper>
+      </Flex>
+    </MoviePageWrapper>
   );
 };
