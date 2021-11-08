@@ -1,8 +1,13 @@
 import { MovieCard } from "../MovieCard/MovieCard";
 import { MoviesListWrapper } from "./MoviesList.styles";
 import { Grid } from "@chakra-ui/react";
+import { MovieType } from "../../types/types";
 
-export const MoviesList = ({ movies }) => {
+type MoviesListProps = {
+  movies: Array<MovieType>;
+};
+
+export const MoviesList = ({ movies }: MoviesListProps) => {
   return (
     <MoviesListWrapper>
       <Grid templateColumns="repeat(4, 1fr)">

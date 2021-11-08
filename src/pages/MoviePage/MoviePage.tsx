@@ -13,7 +13,7 @@ import { Loader } from "../../components/Loader/Loader";
 import { getBudgetWithCommas } from "../../utils/getBudgetWithCommas";
 
 export const MoviePage = () => {
-  const { id } = useParams();
+  const { id }: any = useParams();
   const { data, error, isLoading } = useGetMovieInfoQuery(id);
 
   const postePath = data && data.poster_path;

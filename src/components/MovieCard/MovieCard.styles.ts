@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+type CardImage = {
+  url: string;
+};
+
 export const MovieCardWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -14,7 +18,7 @@ export const MovieCardWrapper = styled.div`
   }
 `;
 
-export const CardImage = styled.div`
+export const CardImage = styled.div<CardImage>`
   width: 100%;
   height: 200px;
   background-size: cover;

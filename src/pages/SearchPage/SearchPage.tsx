@@ -1,7 +1,7 @@
 import { SearchPageWrapper } from "./SearchPage.styles";
 import { SearchBar } from "../../components/SearchBar/SearchBar";
 import { MoviesList } from "../../components/MoviesList/MoviesList";
-import { useCallback, useState } from "react";
+import { ChangeEvent, useCallback, useState } from "react";
 import debounce from "lodash.debounce";
 import { useGetFoundMoviesQuery } from "../../store/services/search";
 import { Section } from "../../styles/global";
@@ -14,7 +14,7 @@ export const SearchPage = () => {
 
   const movies = data && data.results;
 
-  const handleChangeSearchInput = (e) => {
+  const handleChangeSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchInput(e.target.value);
   };
 
