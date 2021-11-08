@@ -1,4 +1,4 @@
-import { MovieCard } from "../MovieCard/MovieCard";
+import { MovieCard } from "../MovieCard";
 import { MoviesListWrapper } from "./MoviesList.styles";
 import { Grid } from "@chakra-ui/react";
 import { MovieType } from "../../types/types";

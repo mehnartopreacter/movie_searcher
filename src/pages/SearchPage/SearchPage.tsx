@@ -1,12 +1,12 @@
 import { SearchPageWrapper } from "./SearchPage.styles";
-import { SearchBar } from "../../components/SearchBar/SearchBar";
-import { MoviesList } from "../../components/MoviesList/MoviesList";
+import { SearchBar } from "../../components/SearchBar";
+import { MoviesList } from "../../components/MoviesList";
 import { ChangeEvent, useCallback, useState } from "react";
 import debounce from "lodash.debounce";
 import { useGetFoundMoviesQuery } from "../../store/services/search";
 import { Section } from "../../styles/global";
-import { ErrorWarning } from "../../components/ErrorWarning/ErrorWarning";
-import { Loader } from "../../components/Loader/Loader";
+import { ErrorWarning } from "../../components/ErrorWarning";
+import { Loader } from "../../components/Loader";
 
 export const SearchPage = () => {
   const [searchInput, setSearchInput] = useState("");

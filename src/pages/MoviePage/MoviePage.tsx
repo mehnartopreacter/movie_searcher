@@ -8,8 +8,8 @@ import { useGetMovieInfoQuery } from "../../store/services/movies";
 import { Flex, Grid, Heading, Text } from "@chakra-ui/react";
 import { concatImageUrl } from "../../utils/concatImageUrl";
 import { joinListOfNamedEntities } from "../../utils/joinListOfNamedEntities";
-import { ErrorWarning } from "../../components/ErrorWarning/ErrorWarning";
-import { Loader } from "../../components/Loader/Loader";
+import { ErrorWarning } from "../../components/ErrorWarning";
+import { Loader } from "../../components/Loader";
 import { getBudgetWithCommas } from "../../utils/getBudgetWithCommas";
 
 export const MoviePage = () => {

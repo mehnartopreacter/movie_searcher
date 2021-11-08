@@ -1,6 +1,6 @@
 import { HomePageWrapper } from "./HomePage.styles";
 import { Heading } from "@chakra-ui/react";
-import { SortedMovies } from "../../components/SortedMovies/SortedMovies";
+import { SortedMovies } from "../../components/SortedMovies";
 import { discoverEndpoints } from "../../fixtures/endpoints";
 import { Section } from "../../styles/global";
 

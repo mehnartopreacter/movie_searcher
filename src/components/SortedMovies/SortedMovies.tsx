@@ -1,8 +1,8 @@
 import { useGetSortedMoviesQuery } from "../../store/services/discover";
 import { SortedMoviesWrapper } from "./SortedMovies.styles";
-import { MoviesList } from "../MoviesList/MoviesList";
-import { Loader } from "../Loader/Loader";
-import { ErrorWarning } from "../ErrorWarning/ErrorWarning";
+import { MoviesList } from "../MoviesList";
+import { Loader } from "../Loader";
+import { ErrorWarning } from "../ErrorWarning";
 
 type SortedMoviesProps = {
   sortType: string;
